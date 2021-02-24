@@ -46,6 +46,7 @@ int main(){
 	
 	change(a,num_a.num);
 	change(b,num_b.num);
+	
 	printf("A+B:");
 	large_num sum=num_a+num_b;
 	out(sum);
