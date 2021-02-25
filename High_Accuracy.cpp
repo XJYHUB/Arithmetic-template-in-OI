@@ -1,7 +1,8 @@
 
 /*
 By XJY 
-PLUS:2021/21/24
+PLUS:2021/2/24
+MULTIPLY:2021/2/25
 */
 
 #include <bits/stdc++.h>
@@ -38,6 +39,23 @@ large_num operator + (large_num a,large_num b){ // PLUS
 	return a;
 }
 
+large_num operator * (large_num a,large_num b){ //MULTIPLY
+	large_num res;
+	memset(res.num,0,sizeof(res.num));
+	int la=a.num[0],lb=b.num[0];
+	for(int i=1;i<=la;i++){
+		for(int j=1;j<=lb;j++){
+			res.num[i+j-1]+=a.num[i]*b.num[j];
+			res.num[i+j]+=res.num[i+j-1]/10;
+			res.num[i+j-1]%=10;
+		}
+	}
+	int len=la+lb+1;
+	while(res.num[len]==0)len--;
+	res.num[0]=len;
+	return res;
+}
+
 int main(){
 	string a,b;
 	large_num num_a,num_b;
@@ -47,9 +65,14 @@ int main(){
 	change(a,num_a.num);
 	change(b,num_b.num);
 	
-	printf("A+B:");
+	printf("A+B=");
 	large_num sum=num_a+num_b;
 	out(sum);
+	cout << endl;
+	
+	printf("A*B=");
+	large_num product=num_a*num_b;
+	out(product);
 	cout << endl;
 	
 	return 0;
