@@ -7,7 +7,7 @@ By XJY
 #include <bits/stdc++.h>
 using namespace std;
 
-int read(){ // character ans bitwise operation and the fastest
+int read(){ // character ans bitwise operation are the fastest
 	bool flag=0;
 	int num=0;
 	char c=getchar();
